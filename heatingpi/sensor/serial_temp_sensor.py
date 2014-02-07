@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     sensor = SerialTempSensor(name=args.name, dev=args.dev, baud=args.baud)
-    poll_sensor(20, sensor))
+    poll_sensor(20, sensor)
 
 
 

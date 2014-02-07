@@ -25,9 +25,9 @@ class SerialTempSensor(TempSensor):
 if __name__ == "__main__":
     from sensor import common_args, poll_sensor
     parser = common_args()
-    serial_parser.add_subparsers("Serial Temp Sensor specific arguments")
-    serial_parser.add_argument("--dev", description="Serial device", default="/dev/ttyAMA0")
-    serial_parser.add_argument("--baud", description="Baud Rate", default=9600)
+    serial_args = parser.add_argument_group("Serial Temp Sensor options")
+    serial_args.add_argument("--dev", help="Serial device", default="/dev/ttyAMA0")
+    serial_args.add_argument("--baud", help="Baud Rate", default=9600)
 
     args = parser.parse_args()
     sensor = SerialTempSensor(name=args.name, dev=args.dev, baud=args.baud)

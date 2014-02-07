@@ -24,7 +24,7 @@ class Sensor(object):
 def common_args():
     """Return an argument parser with common sensor arguments"""
     parser = ArgumentParser(description="Sensor arguments")
-    parser.add_argument("--name", description="Unique name of the sensor")
+    parser.add_argument("--name", help="Unique name of the sensor")
     return parser
 
 def poll_sensor(period, sensor):

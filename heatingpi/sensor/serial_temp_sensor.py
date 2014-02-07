@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 #
 # A simple temperature sensor that is plugged into the serial port of
 # the Pi and reports a temperature every now and again.

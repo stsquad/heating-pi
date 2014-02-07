@@ -14,7 +14,7 @@ class SerialTempSensor(TempSensor):
     """
 
     def __init__(self, name="ttyAMA0", dev="/dev/ttyAMA0", baud=9600):
-        super(SerialTempSensor, self).__init__(name=name)
+        super(SerialTempSensor, self).__init__(name)
         self.port = Serial(dev, baud)
 
     def poll(self):

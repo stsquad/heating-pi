@@ -12,12 +12,12 @@ class Sensor(object):
     A sensor is anything that returns a sensed state
     """
 
-    def __init__(self, type="sensor", name):
-        self.type = type
+    def __init__(self, stype="sensor", name="sensor"):
+        self.stype = stype
         self.name = name
 
     def __str__(self):
-        return "%s sensor called %s" % (self.type, self.name)
+        return "%s sensor called %s" % (self.stype, self.name)
     
         
 

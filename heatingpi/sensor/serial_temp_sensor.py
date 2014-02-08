@@ -16,10 +16,16 @@ class SerialTempSensor(TempSensor):
     def __init__(self, name="ttyAMA0", dev="/dev/ttyAMA0", baud=9600):
         super(SerialTempSensor, self).__init__(name=name, num=1)
         self.port = Serial(dev, baud)
+        # flush a line out
+        self.port.readline()
 
     def poll(self):
         line = self.port.readline()
-        self.log_data(float(line))
+        try:
+            temp = float(line)
+            self.log_data([temp])
+        except:
+            print "error converting: %s" % (line)
 
 
 if __name__ == "__main__":

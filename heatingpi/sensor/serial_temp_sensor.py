@@ -14,12 +14,12 @@ class SerialTempSensor(TempSensor):
     """
 
     def __init__(self, name="ttyAMA0", dev="/dev/ttyAMA0", baud=9600):
-        super(SerialTempSensor, self).__init__(name)
+        super(SerialTempSensor, self).__init__(name=name, num=1)
         self.port = Serial(dev, baud)
 
     def poll(self):
         line = self.port.readline()
-        print "got %s" % (line)
+        self.log_data(float(line))
 
 
 if __name__ == "__main__":

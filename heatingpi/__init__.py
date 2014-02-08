@@ -1,4 +1,5 @@
 # Heating Pi, A set of modules to build a temperature control system
+# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2014 Alex Bennée <alex@bennee.com>
 #

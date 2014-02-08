@@ -1,5 +1,7 @@
+# Heating Pi, Sensor modules
+# -*- coding: utf-8 -*-
 #
-#
+# Copyright (C) 2014 Alex Bennée <alex@bennee.com>
 #
 """
 The sensor modules are ones that get values from various sensors.

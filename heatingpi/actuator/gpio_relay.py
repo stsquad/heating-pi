@@ -24,6 +24,7 @@ class GPIORelay(object):
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
+    from time import sleep
 
     parser = ArgumentParser(description="GPIO Relay options")
     parser.add_argument("--gpio", help="GPIO Pin Number (BCM ID)", default=17)
@@ -34,7 +35,8 @@ if __name__ == "__main__":
     relay = GPIORelay("gpio_relay", args.gpio)
     relay.set(args.state)
     print "Set GPIO %s to %s" % (args.gpio, args.state)
-
+    sleep(10)
+    print "Done now..."
 
 
 

@@ -12,9 +12,12 @@ class GPIORelay(object):
 
     def __init__(self, name, gpio):
         self.name = name
-        self.gpio = gpio
+        self.gpio = int(gpio)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.gpio, GPIO.OUT)
+
+    def __del__(self):
+        GPIO.cleanup(self.gpio)
 
     def set(self, state=False):
         GPIO.output(self.gpio, state)
@@ -24,11 +27,13 @@ if __name__ == "__main__":
 
     parser = ArgumentParser(description="GPIO Relay options")
     parser.add_argument("--gpio", help="GPIO Pin Number (BCM ID)", default=17)
-    parser.add_argument("--state", help="Switch state", type=bool, default=False)
+    parser.add_argument("--on", help="Switch on", dest="state", action="store_true")
+    parser.add_argument("--off", help="Switch off", dest="state", action="store_false")
 
     args = parser.parse_args()
     relay = GPIORelay("gpio_relay", args.gpio)
     relay.set(args.state)
+    print "Set GPIO %s to %s" % (args.gpio, args.state)
 
 
 

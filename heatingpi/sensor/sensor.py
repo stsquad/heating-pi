@@ -17,14 +17,19 @@ class Sensor(object):
         self.stype = stype
         self.name = name
         self.num = int(num)
+        self.last = [0] * num
 
     def __str__(self):
         return "Sensor %s (%s)" % (self.name, self.stype)
+
+    def last_value(self, index=0):
+        return self.last[index]
 
     def log_data(self, array_of_data):
         """
         Log the sensor data
         """
+        self.last = array_of_data
         print "%s: %s %s" % (asctime(), str(self), array_of_data)
     
         
